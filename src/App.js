@@ -1,8 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
 function App() {
+  const [commonCount, setCommonCount] = useState(0);
+
+  function handleClick() {
+    setCommonCount(commonCount + 1);
+  }
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -23,6 +28,9 @@ function App() {
       <Distribution />
       <ListView />
       <MyButton />
+      <MyButton />
+      <CommonButton count={commonCount} onClick={handleClick} />
+      <CommonButton count={commonCount} onClick={handleClick} />
     </div>
   );
 }
@@ -37,6 +45,20 @@ function MyButton() {
     <>
       <div>{count}</div>
       <button onClick={handleClick}>
+        {text}
+        {count}
+      </button>
+    </>
+  );
+}
+
+function CommonButton({ count, onClick }) {
+  let text = 'common button';
+
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={onClick}>
         {text}
         {count}
       </button>
