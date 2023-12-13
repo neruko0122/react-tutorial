@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   return (
@@ -27,7 +28,20 @@ function App() {
 }
 
 function MyButton() {
-  return <button>test</button>;
+  let text = 'test button';
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount(count + 1);
+  }
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={handleClick}>
+        {text}
+        {count}
+      </button>
+    </>
+  );
 }
 
 function Profile() {
