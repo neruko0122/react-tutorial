@@ -19,6 +19,7 @@ function App() {
         </a>
       </header> */}
       <Profile />
+      <Distribution />
       <MyButton />
     </div>
   );
@@ -40,6 +41,17 @@ function Profile() {
       <br />
     </>
   );
+}
+
+function Distribution() {
+  const isChecked = true;
+  let result;
+  if (isChecked) {
+    result = 'True';
+  } else {
+    result = 'False';
+  }
+  return <div>{result}</div>;
 }
 
 const user = {
