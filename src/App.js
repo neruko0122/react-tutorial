@@ -1,6 +1,11 @@
 // import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { useState } from 'react';
+import Home from './pages/Home';
+import Tutorial from './pages/Tutorial';
+import NotFound from './pages/NotFound';
+// import NotFoundComponent from './pages/NotFound';
 
 function App() {
   const [commonCount, setCommonCount] = useState(0);
@@ -31,6 +36,11 @@ function App() {
       <MyButton />
       <CommonButton count={commonCount} onClick={handleClick} />
       <CommonButton count={commonCount} onClick={handleClick} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tutorial" element={<Tutorial />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
@@ -96,8 +106,8 @@ function ListView() {
     <li key={fruit.id}>
       {fruit.name}
       <ul>
-        <li>{fruit.color}</li>
-        <li>
+        <li key={fruit.id}>{fruit.color}</li>
+        <li key={fruit.id}>
           <img
             src={fruit.imageUrl}
             alt={'test image' + fruit.name}
